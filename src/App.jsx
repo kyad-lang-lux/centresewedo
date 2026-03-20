@@ -99,7 +99,7 @@ export default function App() {
       <span className="section-subtitle">NOS EXPERTISES</span>
       <h2 className="section-title">Domaines d'intervention</h2>
       <p className="section-description">
-        Quatre piliers complémentaires au service du développement intégral des communautés.
+        Quatre piliers  au service du développement intégral des communautés.
       </p>
     </div>
 
@@ -216,7 +216,7 @@ export default function App() {
   </div>
 </section>
  
-<section className="budget-section bg-light">
+{/* <section className="budget-section bg-light">
   <div className="container">
     <div className="section-header">
       <span className="section-subtitle">TRANSPARENCE</span>
@@ -257,7 +257,7 @@ export default function App() {
       </div>
     </div>
   </div>
-</section>
+</section> */}
 
 <section className="roadmap-section">
   <div className="container">
@@ -324,25 +324,29 @@ export default function App() {
     <div className="impact-grid">
       <div className="impact-card">
         <i className="fas fa-users"></i>
-        <h3><Counter end={2500} />+</h3>
+        {/* <h3><Counter end={25} />+</h3> */}
+        <h3>Début d'activités</h3>
         <p>Enfants, jeunes et familles accompagnés</p>
       </div>
 
       <div className="impact-card">
         <i className="fas fa-calendar-check"></i>
-        <h3><Counter end={120} />+</h3>
+        {/* <h3><Counter end={12} />+</h3> */}
+        <h3>Début d'activités</h3>
         <p>Ateliers et formations organisés</p>
       </div>
 
       <div className="impact-card">
         <i className="fas fa-globe"></i>
-        <h3><Counter end={15} /></h3>
+        {/* <h3><Counter end={15} /></h3> */}
+        <h3>Début d'activités</h3>
         <p>Communautés locales touchées</p>
       </div>
 
       <div className="impact-card">
         <i className="fas fa-chalkboard-teacher"></i>
-        <h3><Counter end={45} />+</h3>
+        {/* <h3><Counter end={10} />+</h3> */}
+        <h3>Début d'activités</h3>
         <p>Éducateurs et formateurs mobilisés</p>
       </div>
     </div>
