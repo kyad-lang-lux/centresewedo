@@ -220,7 +220,7 @@ body {
   color: var(--blanc);
   overflow: hidden;
   /* Remplace le nom de l'image par ton fichier réel dans /public/img/ */
-  background: url("./public/img/hero-bg.jpg") no-repeat center center/cover;
+  background: url("/img/hero-bg.jpg") no-repeat center center/cover;
 }
 
 /* L'effet de dégradé vert sur l'image */

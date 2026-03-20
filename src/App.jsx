@@ -364,7 +364,7 @@ export default function App() {
       {/* Colonne Gauche : Image et texte d'introduction */}
       <div className="contact-info-left">
         <div className="contact-image-box">
-          <img src="./public/img/contact-office.jpg" alt="Bureau Sèwèdo" />
+          <img src="/img/contact-office.jpg" alt="Bureau Sèwèdo" />
         </div>
         <p className="contact-intro-text">
           Que vous soyez un particulier, une association ou une organisation, nous serions ravis d'échanger avec vous. Ensemble, nous pouvons avoir un impact plus fort et plus durable.
