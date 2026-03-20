@@ -1,0 +1,1151 @@
+/* ============================================================
+   GLOBAL & VARIABLES
+   ============================================================ */
+:root {
+  --vert-principal: #2F9E44;
+  --blanc: #FFFFFF;
+  --bleu-profond: #003F5C;
+  --noir: #000000;
+  --texte-gris: #555555;
+  --gris-pale: #F8F9FA;
+  --transition: all 0.3s ease;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--noir);
+  background-color: var(--blanc);
+  overflow-x: hidden; /* Évite les scrolls horizontaux bizarres */
+}
+
+/* ============================================================
+   COMPONENT: NAVBAR
+   ============================================================ */
+.navbar {
+  background-color: var(--blanc);
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--noir);
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--vert-principal);
+}
+
+/* LIENS CENTRAUX */
+.nav-links-center {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  list-style: none;
+}
+
+/* Desktop positionnement pour forcer le centrage */
+@media (min-width: 769px) {
+  .nav-links-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.nav-links-center li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--texte-gris);
+  transition: var(--transition);
+}
+
+.nav-links-center li a:hover {
+  color: var(--vert-principal);
+}
+
+/* BOUTON CONTACT */
+.nav-contact-btn {
+  background-color: var(--vert-principal);
+  color: var(--blanc) !important;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+
+.nav-contact-btn:hover {
+  background-color: var(--bleu-profond);
+  transform: translateY(-2px);
+}
+
+.mobile-only-contact, .menu-toggle {
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 992px) {
+  .nav-links-center { gap: 20px; }
+  .navbar-container { padding: 0 20px; }
+}
+
+@media (max-width: 768px) {
+  .nav-right-desktop { display: none; }
+  .menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--bleu-profond);
+  }
+
+  .nav-links-center {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 0; /* Fermé par défaut */
+    background: var(--blanc);
+    flex-direction: column;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    padding: 0;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+  }
+
+  .nav-links-center.active {
+    height: 100vh;
+    padding-top: 40px;
+  }
+
+  .nav-links-center li {
+    padding: 15px 0;
+  }
+
+  .mobile-only-contact {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+/* src/style.css */
+
+/* --- Ajustement du conteneur du logo --- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espace entre l'image et le texte */
+  text-decoration: none;
+  font-size: 1.5rem; /* Taille du texte Sèwèdo */
+  font-weight: 700;
+  color: var(--noir);
+  color: #242323;
+  transition: var(--transition);
+}
+
+/* --- Style spécifique pour l'image du logo --- */
+.logo-img {
+  height: 55px; /* Ajuste cette hauteur selon tes besoins pour la navbar */
+  width: auto; /* Garde les proportions */
+  border-radius: 5px; /* Optionnel : un léger arrondi si ton logo est carré */
+  object-fit: contain; /* S'assure que l'image n'est pas déformée */
+}
+
+/* --- Hover effet sur le logo complet --- */
+.navbar-logo:hover {
+  opacity: 0.8;
+}
+
+/* --- Responsive : réduire un peu la taille sur mobile --- */
+@media (max-width: 768px) {
+  .logo-img {
+    height: 40px; /* Plus petit sur mobile pour gagner de la place */
+  }
+  .navbar-logo {
+    font-size: 1.3rem;
+    gap: 10px;
+  }
+}
+
+/* ============================================================
+   SECTION: HERO
+   ============================================================ */
+.hero-section {
+  position: relative;
+  height: 100vh; /* Prend tout l'écran */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--blanc);
+  overflow: hidden;
+  /* Remplace le nom de l'image par ton fichier réel dans /public/img/ */
+  background: url("./public/img/hero-bg.jpg") no-repeat center center/cover;
+}
+
+/* L'effet de dégradé vert sur l'image */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(47, 158, 68, 0.8) 0%, rgba(0, 63, 92, 0.7) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Au-dessus de l'overlay */
+  max-width: 900px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge du haut */
+.hero-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-transform: lowercase;
+}
+
+/* Titre principal */
+.hero-title {
+  font-size: 4rem; /* Très grand pour l'impact */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: #FFB84D; /* Couleur dorée pour "Bien-être" comme sur ton image */
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* Boutons */
+.hero-btns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: var(--blanc);
+  color: var(--bleu-profond);
+  padding: 14px 25px;
+  border-radius: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: var(--blanc);
+  padding: 14px 25px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--blanc);
+}
+
+/* Animation Scroll du bas */
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  opacity: 0.7;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--blanc), transparent);
+}
+
+/* ============================================================
+   RESPONSIVE HERO
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 20px;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   SECTION: À PROPOS (ABOUT)
+   ============================================================ */
+.about-section {
+  padding: 100px 0;
+  background-color: var(--blanc);
+  display: flex;
+  justify-content: center;
+}
+
+.about-section .container {
+  max-width: 1000px; /* Largeur contenue pour la lisibilité */
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* En-tête de section */
+.about-header {
+  margin-bottom: 50px;
+}
+
+.section-subtitle {
+  color: var(--vert-principal);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--bleu-profond);
+  margin-bottom: 25px;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 900;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  color: var(--texte-gris);
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Conteneur de l'image */
+.about-image-container {
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 30px; /* Bords très arrondis comme sur le design */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.about-image-container:hover {
+  transform: scale(1.01); /* Léger effet de zoom au survol */
+}
+
+.about-img {
+  width: 100%;
+  height: 340px;
+  display: block;
+  object-fit: cover;
+}
+
+/* ============================================================
+   RESPONSIVE ABOUT
+   ============================================================ */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    text-align: justify; /* Mieux pour le mobile */
+  }
+
+  .about-image-container {
+    border-radius: 15px; /* On réduit un peu l'arrondi sur mobile */
+  }
+}
+
+
+/* --- GRILLE DES CARTES --- */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+  gap: 30px;
+  margin-top: 60px; /* Espace après l'image */
+}
+
+/* --- STYLE D'UNE CARTE --- */
+.about-card {
+  background: var(--blanc);
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid #eef0f2; /* Bordure très fine */
+  text-align: left; /* Alignement à gauche comme sur le design */
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  border-color: var(--vert-principal);
+}
+
+/* --- BOITE DE L'ICÔNE --- */
+.card-icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: #EBF7EE; /* Vert très pâle pour le fond de l'icône */
+  color: var(--vert-principal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* --- TEXTES DANS LES CARTES --- */
+.about-card h3 {
+  color: var(--bleu-profond);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.about-card p {
+  color: var(--texte-gris);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .about-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-cards {
+    grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+    gap: 20px;
+  }
+  
+  .about-card {
+    padding: 30px 20px;
+  }
+}
+
+
+/* ============================================================
+   SECTION: DOMAINES D'INTERVENTION
+   ============================================================ */
+.services-section {
+  padding: 100px 0;
+  background-color: var(--gris-pale); /* Fond légèrement gris pour détacher du blanc */
+}
+
+.services-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-description {
+  color: var(--texte-gris);
+  max-width: 600px;
+  margin: 15px auto 0;
+}
+
+/* Grille */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* Style de la Carte */
+.service-card {
+  background: var(--blanc);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: var(--transition);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Image du haut */
+.service-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Contenu et Icône */
+.service-content {
+  padding: 30px 25px 30px;
+  position: relative;
+  text-align: left;
+}
+
+.service-icon {
+  position: absolute;
+  top: -25px; /* Fait flotter l'icône sur l'image */
+  left: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--vert-principal);
+  color: var(--blanc);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(47, 158, 68, 0.3);
+}
+
+.service-content h3 {
+  font-size: 1.2rem;
+  color: var(--bleu-profond);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.service-content p {
+  font-size: 0.9rem;
+  color: var(--texte-gris);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   RESPONSIVE SERVICES
+   ============================================================ */
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   SECTION: PROGRAMMES & ACTIVITÉS
+   ============================================================ */
+.programs-section {
+  padding: 30px 0;
+  background-color: var(--blanc); /* Ou var(--gris-pale) selon ton envie d'alterner */
+}
+
+.programs-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Grille de 3 colonnes par défaut */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Style de la carte Programme */
+.program-card {
+  background: var(--blanc);
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid #f0f0f0;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alignement à gauche */
+  text-align: left;
+}
+
+.program-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--vert-principal);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.04);
+}
+
+.program-card h3 {
+  font-size: 1.25rem;
+  color: var(--bleu-profond);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.program-card p {
+  font-size: 0.95rem;
+  color: var(--texte-gris);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   RESPONSIVE PROGRAMMES
+   ============================================================ */
+@media (max-width: 992px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+  }
+}
+
+@media (max-width: 650px) {
+  .programs-grid {
+    grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+  }
+  
+  .program-card {
+    padding: 25px;
+  }
+}
+
+
+
+/* ============================================================
+   SECTION: IMPACT (STATISTIQUES)
+   ============================================================ */
+.impact-section {
+  position: relative;
+  padding:40px 20px;
+  background: linear-gradient(135deg, #2F9E44 0%, #003F5C 100%);
+  color: var(--blanc);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Cercles décoratifs en arrière-plan */
+.impact-overlay-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 25%);
+  pointer-events: none;
+}
+
+.white-text .section-title, 
+.white-text .section-description {
+  color: var(--blanc);
+}
+
+.gold {
+  color: #FFB84D !important; /* Couleur dorée pour le sous-titre */
+}
+
+/* Grille d'impact */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 60px;
+}
+
+/* Cartes transparentes (Glassmorphism) */
+.impact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px 20px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.impact-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.impact-card i {
+  font-size: 1.5rem;
+  color: #FFB84D;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.impact-card h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.impact-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   RESPONSIVE IMPACT
+   ============================================================ */
+@media (max-width: 992px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  .impact-card h3 {
+    font-size: 2rem;
+  }
+}
+
+
+/* ============================================================
+   SECTION: CONTACT
+   ============================================================ */
+.contact-section {
+  padding: 40px 40px;
+  background-color: var(--gris-pale);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+  align-items: start;
+}
+
+/* --- CÔTÉ GAUCHE --- */
+.contact-image-box {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: var(--box-shadow);
+}
+
+.contact-image-box img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-intro-text {
+  color: var(--texte-gris);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* --- CÔTÉ DROIT (COORDONNÉES) --- */
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  background: var(--blanc);
+  padding: 15px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #edf0f2;
+  transition: var(--transition);
+  font-weight: 500;
+  color: var(--bleu-profond);
+}
+
+.contact-item:hover {
+  border-color: var(--vert-principal);
+  transform: translateX(5px);
+}
+
+.contact-item-icon {
+  width: 45px;
+  height: 45px;
+  background: #EBF7EE;
+  color: var(--vert-principal);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.contact-item.whatsapp {
+  cursor: pointer;
+}
+
+/* Réseaux Sociaux */
+.contact-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  background: var(--bleu-profond);
+  color: var(--blanc);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--vert-principal);
+  transform: translateY(-5px);
+}
+
+/* ============================================================
+   RESPONSIVE CONTACT
+   ============================================================ */
+@media (max-width: 992px) {
+  .contact-image-box {
+    width: 95%;
+  }
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+
+
+/* ============================================================
+   SECTION: FOOTER
+   ============================================================ */
+.footer {
+  background-color: var(--bleu-profond); /* Ton bleu foncé #003F5C */
+  padding: 30px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.copyright {
+  margin: 0;
+}
+
+
+
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+}
+
+
+/* --- BUDGET --- */
+.budget-grid {
+  max-width: 800px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.budget-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.budget-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #eee;
+  border-radius: 10px;
+  padding-right: 15px;
+}
+.budget-bar {
+  height: 35px;
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
+.budget-bar-container span {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--bleu-profond);
+}
+
+/* --- ROADMAP (TIMELINE) --- */
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 50px auto;
+  padding-left: 50px;
+  border-left: 3px dashed #2F9E44;
+}
+
+.timeline-block {
+  position: relative;
+  margin-bottom: 40px;
+}
+.timeline-dot {
+  position: absolute;
+  left: -27px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: #2F9E44;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 4px solid white;
+}
+.timeline-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.timeline-content h3 {
+  color: var(--vert-principal);
+  margin-bottom: 10px;
+}
+.timeline-content ul {
+  list-style: none;
+  padding: 0;
+}
+.timeline-content li::before {
+  content: "✓";
+  color: #2F9E44;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+@media (max-width:800px) {
+  
+  
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 50px auto;
+  padding-left: 40px;
+  border-left: none;
+}
+
+.timeline-block {
+  position: relative;
+  margin-bottom: 4px;
+}
+.timeline-dot {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: #2F9E44;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 4px solid white;
+}
+
+.budget-grid {
+  max-width: 800px;
+  padding: 20px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.budget-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.budget-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #eee;
+  border-radius: 10px;
+  padding-right: 10px;
+}
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 5px; /* Distance du bas */
+  right: 10px; /* Distance de la droite */
+  width: 40px;
+  height: 40px;
+  background-color: #003F5C;
+  color: #fff;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  z-index: 999;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background-color: #000; /* Change de couleur au survol */
+}
+
+/* Optionnel : Animation de flottement continue */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.back-to-top {
+  animation: bounce 3s infinite ease-in-out;
+}
+
+/* Cache le bouton sur la barre de navigation mobile pour éviter les chevauchements */
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 10px; /* On le remonte pour ne pas gêner la mobile-tab-bar */
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+  }
+}
+ 
