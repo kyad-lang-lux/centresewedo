@@ -183,7 +183,7 @@ export default function App() {
           <i className="fas fa-seedling"></i>
         </div>
         <h3>Agriculture Durable & Formation</h3>
-        <p>Initiation aux techniques agroécologiques, jardins communautaires et formations pratiques pour une production alimentaire responsable.</p>
+        <p>Initiation aux techniques agroécologiques, jardins communautaires et formations pratiques pour une production alimentaire responsable en bio.</p>
       </div>
 
       {/* Programme 4 */}
