@@ -19,8 +19,8 @@ export default function App() {
     <span className="hero-badge">ENSEMBLE POUR UN AVENIR MEILLEUR</span>
     
     <h1 className="hero-title">
-      Centre Sèwèdo pour <br />
-      le <span>Bien-Être</span> Humain
+      Centre Sèwèdo :  <br /> <strong style={{fontSize:"40px"}}>
+      pour le <span>Bien-Être</span> Humain </strong>
     </h1>
     
     <p className="hero-description">
@@ -259,7 +259,7 @@ export default function App() {
   </div>
 </section> */}
 
-<section className="roadmap-section">
+{/* <section className="roadmap-section">
   <div className="container">
     <div className="section-header">
       <span className="section-subtitle">NOTRE PARCOURS</span>
@@ -267,7 +267,7 @@ export default function App() {
     </div>
 
     <div className="timeline-container">
-      {/* Phase 1 */}
+      
       <div className="timeline-block">
         <div className="timeline-dot">1</div>
         <div className="timeline-content">
@@ -280,7 +280,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Phase 2 */}
+      
       <div className="timeline-block">
         <div className="timeline-dot">2</div>
         <div className="timeline-content">
@@ -293,7 +293,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Phase 3 */}
+      
       <div className="timeline-block">
         <div className="timeline-dot">3</div>
         <div className="timeline-content">
@@ -307,7 +307,7 @@ export default function App() {
       </div>
     </div>
   </div>
-</section>
+</section> */}
 
 <section id="impact" className="impact-section">
   <div className="impact-overlay-circles"></div>
@@ -325,29 +325,29 @@ export default function App() {
       <div className="impact-card">
         <i className="fas fa-users"></i>
         {/* <h3><Counter end={25} />+</h3> */}
-        <h3>Début d'activités</h3>
-        <p>Enfants, jeunes et familles accompagnés</p>
+        <h3>Enfants, jeunes et familles accompagnés</h3>
+        <p></p>
       </div>
 
       <div className="impact-card">
         <i className="fas fa-calendar-check"></i>
         {/* <h3><Counter end={12} />+</h3> */}
-        <h3>Début d'activités</h3>
-        <p>Ateliers et formations organisés</p>
+        <h3>Ateliers et formations organisés</h3>
+        <p></p>
       </div>
 
       <div className="impact-card">
         <i className="fas fa-globe"></i>
         {/* <h3><Counter end={15} /></h3> */}
-        <h3>Début d'activités</h3>
-        <p>Communautés locales touchées</p>
+        <h3>Communautés locales touchées</h3>
+        <p></p>
       </div>
 
       <div className="impact-card">
         <i className="fas fa-chalkboard-teacher"></i>
         {/* <h3><Counter end={10} />+</h3> */}
-        <h3>Début d'activités</h3>
-        <p>Éducateurs et formateurs mobilisés</p>
+        <h3>Éducateurs et formateurs mobilisés</h3>
+        <p></p>
       </div>
     </div>
   </div>
